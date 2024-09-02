@@ -1,10 +1,24 @@
-#include <iostream>
-#include <vector>
-#include <map>
-#include <string>
-#include <list>
+/*<---------------------------------------------------------------------------------------------------------->
+
+Book My Show system design requirements:
+
+1. It should be able to list the cities where affiliate cinemas are located.
+2. Each cinema should have multiple audis and each audi can only run a single movie at a time.
+3. Each movie will have multiple shows.
+4. Customers should be able to search movies by their title, language, genre, release date etc.
+5. Once Customer selects the movie the service should display the list of cinemas running that movie.
+6. Customer should be able to select a show at a cinema and book tickets.
+7. The service should show the customer the seating plan.
+8. The customer should be able to distinguish between available, booked, and reserved seats.
+
+<----------------------------------------------------------------------------------------------------------->*/
+
+
+#include <bits/stdc++.h>
+using namespace std;
 
 using namespace std;
+
 
 // Forward Declarations
 class Show;
@@ -21,6 +35,7 @@ class Admin;
 class User;
 class BMSService;
 class CinemaHall;
+
 
 // Enums
 enum class SeatType {
@@ -43,10 +58,11 @@ enum class PaymentStatus {
     UNPAID, PENDING, COMPLETED, DECLINED, CANCELLED, REFUNDED
 };
 
+
 // Classes
 class Address {
 public:
-    int pinCode; // ZipCode
+    int pinCode; 
     string street;
     string city;
     string state;
@@ -171,6 +187,8 @@ public:
     vector<Movie> getMovies(const string& date, const string& city);
     vector<CinemaHall> getCinemaHalls(const string& city);
 };
+
+
 
 // Methods Definitions (can be expanded as needed)
 map<string, vector<Movie>> CinemaHall::getMovies(vector<string> dateList) {
